@@ -20,7 +20,7 @@ function generate_dungeon(seed) {
 
     const carpet = document.createElement('img');
     carpet.className = 'element';
-    carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 9)) + '.png';
+    carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
 
     const rect = document.getElementById('76').getBoundingClientRect();
     const x = rect.left;
