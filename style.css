@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container {
+    --tile-size: min(calc(100vw / 25), calc(100vh / 19));
+
+    width: calc(var(--tile-size) * 25);
+    height: calc(var(--tile-size) * 19);
+
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-auto-rows: calc(100vh / 19);
+
+    gap: 0;
+    margin: auto;
+    padding: 0;
+}
+
+.element {
+    height: 100%;
+    width: 100%;
+    display: block;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
