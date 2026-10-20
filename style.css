@@ -6,14 +6,14 @@ html, body {
 }
 
 .container {
-    --tile-size: min(calc(100vw / 25), calc(100vh / 19));
+    --tile-size: min(calc(100vw / 25), calc(100vh / 17));
 
     width: calc(var(--tile-size) * 25);
-    height: calc(var(--tile-size) * 19);
+    height: calc(var(--tile-size) * 17);
 
     display: grid;
     grid-template-columns: repeat(25, 1fr);
-    grid-auto-rows: calc(100vh / 19);
+    grid-auto-rows: calc(100vh / 17);
 
     gap: 0;
     margin: auto;
