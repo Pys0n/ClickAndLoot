@@ -18,21 +18,26 @@ function generate_dungeon(seed) {
         document.body.appendChild(element);
     }
 
-    const carpet = document.createElement('img');
-    carpet.className = 'element';
-    carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
+    if (random_integer(seed, 1, 10) == 1) {
+        seed++
+        
+        const carpet = document.createElement('img');
+        carpet.className = 'element';
+        carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
+        seed++
 
-    const rect = document.getElementById('76').getBoundingClientRect();
-    const x = rect.left;
-    const y = rect.top;
-    const size = rect.width;
+        const rect = document.getElementById('76').getBoundingClientRect();
+        const x = rect.left;
+        const y = rect.top;
+        const size = rect.width;
 
-    carpet.style.position = 'absolute'
-    carpet.style.left = String(x) + 'px'
-    carpet.style.top = String(y) + 'px'
-    carpet.style.width = String(size * 23) + 'px'
-    carpet.style.height = String(size * 13) + 'px'
-    document.body.appendChild(carpet);
+        carpet.style.position = 'absolute'
+        carpet.style.left = String(x) + 'px'
+        carpet.style.top = String(y) + 'px'
+        carpet.style.width = String(size * 23) + 'px'
+        carpet.style.height = String(size * 13) + 'px'
+        document.body.appendChild(carpet);
+    }
 }
 
 function mulberry32(seed) {
