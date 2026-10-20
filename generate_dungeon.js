@@ -18,7 +18,7 @@ function generate_dungeon(seed) {
         document.body.appendChild(element);
     }
 
-    if (random_integer(seed, 1, 10) == 1) {
+    if (random_integer(seed, 1, 10) != 1) {
         seed++
         
         const carpet = document.createElement('img');
