@@ -1,4 +1,18 @@
-function generate_dungeon(seed) {
+let room = 0;
+let dungeon_seed = 0;
+
+function load_dungeon(seed) {
+    dungeon_seed = seed;
+    document.body.replaceChildren();
+
+    const room_seed = seed + room;
+    
+    generate_room(room_seed);
+
+    console.log('Your seed:', seed, '— Current room:', room);
+}
+
+function generate_room(seed) {
     for (let index = 0; index < 25*17; index++) {
         const element = document.createElement('img');
         element.className = 'element';
@@ -26,18 +40,100 @@ function generate_dungeon(seed) {
         carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
         seed++
 
-        const rect = document.getElementById('76').getBoundingClientRect();
-        const x = rect.left;
-        const y = rect.top;
-        const size = rect.width;
+        const carpet_rect = document.getElementById('76').getBoundingClientRect();
+        const carpet_x = carpet_rect.left;
+        const carpet_y = carpet_rect.top;
+        const carpet_size = carpet_rect.width;
 
-        carpet.style.position = 'absolute'
-        carpet.style.left = String(x) + 'px'
-        carpet.style.top = String(y) + 'px'
-        carpet.style.width = String(size * 23) + 'px'
-        carpet.style.height = String(size * 13) + 'px'
+        carpet.style.position = 'absolute';
+        carpet.style.left = String(carpet_x) + 'px';
+        carpet.style.top = String(carpet_y) + 'px';
+        carpet.style.width = String(carpet_size * 23) + 'px';
+        carpet.style.height = String(carpet_size * 13) + 'px';
         document.body.appendChild(carpet);
     }
+
+    // left door
+    const left_door_hitbox = document.createElement('button');
+    left_door_hitbox.className = 'hitbox';
+    left_door_hitbox.onclick = () => change_room('left');
+
+    let rect = document.getElementById('150').getBoundingClientRect();
+    let x = rect.left;
+    let y = rect.top;
+    let size = rect.width;
+
+    left_door_hitbox.style.position = 'absolute'
+    left_door_hitbox.style.left = String(x) + 'px';
+    left_door_hitbox.style.top = String(y) + 'px';
+    left_door_hitbox.style.width = String(size) + 'px';
+    left_door_hitbox.style.height = String(size * 5) + 'px';
+    document.body.appendChild(left_door_hitbox)
+
+    // right door
+    const right_door_hitbox = document.createElement('button');
+    right_door_hitbox.className = 'hitbox';
+    right_door_hitbox.onclick = () => change_room('right');
+
+    rect = document.getElementById('174').getBoundingClientRect();
+    x = rect.left;
+    y = rect.top;
+    size = rect.width;
+
+    right_door_hitbox.style.position = 'absolute'
+    right_door_hitbox.style.left = String(x) + 'px';
+    right_door_hitbox.style.top = String(y) + 'px';
+    right_door_hitbox.style.width = String(size) + 'px';
+    right_door_hitbox.style.height = String(size * 5) + 'px';
+    document.body.appendChild(right_door_hitbox)
+
+    // upper door
+    const upper_door_hitbox = document.createElement('button');
+    upper_door_hitbox.className = 'hitbox';
+    upper_door_hitbox.onclick = () => change_room('up');
+
+    rect = document.getElementById('11').getBoundingClientRect();
+    x = rect.left;
+    y = rect.top;
+    size = rect.width;
+
+    upper_door_hitbox.style.position = 'absolute'
+    upper_door_hitbox.style.left = String(x) + 'px';
+    upper_door_hitbox.style.top = String(y) + 'px';
+    upper_door_hitbox.style.width = String(size * 3) + 'px';
+    upper_door_hitbox.style.height = String(size * 3) + 'px';
+    document.body.appendChild(upper_door_hitbox)
+
+    // bottom door
+    const bottom_door_hitbox = document.createElement('button');
+    bottom_door_hitbox.className = 'hitbox';
+    bottom_door_hitbox.onclick = () => change_room('down');
+
+    rect = document.getElementById('411').getBoundingClientRect();
+    x = rect.left;
+    y = rect.top;
+    size = rect.width;
+
+    bottom_door_hitbox.style.position = 'absolute'
+    bottom_door_hitbox.style.left = String(x) + 'px';
+    bottom_door_hitbox.style.top = String(y) + 'px';
+    bottom_door_hitbox.style.width = String(size * 3) + 'px';
+    bottom_door_hitbox.style.height = String(size) + 'px';
+    document.body.appendChild(bottom_door_hitbox)
+}
+
+function change_room(to) {
+    if (to === 'left') {
+        room--
+    } else if (to === 'right') {
+        room++
+    } else if (to === 'up') {
+        room += 1000
+    } else if (to === 'down') {
+        room -= 1000
+    }
+
+    load_dungeon(dungeon_seed)
 }
 
 function mulberry32(seed) {
