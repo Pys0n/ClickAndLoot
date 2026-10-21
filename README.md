@@ -2,5 +2,5 @@
 
 # Current Status
 
-- a *(pseudo)* random generated dungeon room **(seed in console)**
-    - walls, floor, 4 doors, carpet, *void*
+- *(pseudo)* random generated dungeon rooms **(seed and room in console)**
+    - walls, floor, 4 clickable corridors, carpet, *void*
