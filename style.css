@@ -13,7 +13,7 @@ html, body {
 
     display: grid;
     grid-template-columns: repeat(25, 1fr);
-    grid-auto-rows: calc(100vh / 17);
+    grid-auto-rows: var(--tile-size);
 
     gap: 0;
     margin: auto;
