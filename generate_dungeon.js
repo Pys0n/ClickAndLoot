@@ -9,7 +9,6 @@ function fade_out_in(callback) {
   setTimeout(() => {
     callback();
 
-    // Kleine Verzögerung, damit der neue Raum zuerst gerendert wird
     requestAnimationFrame(() => {
       fade.classList.remove('active');
     });
