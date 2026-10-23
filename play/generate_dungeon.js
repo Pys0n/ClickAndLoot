@@ -40,15 +40,15 @@ function generate_room(seed) {
         element.decoding = 'async';
         element.id = String(index);
         if ((index % 25 == 0 || index % 25 == 24) && index / 25 >= 6 && index / 25 < 8) {
-            element.src = 'graphics/map/Wall' + String(random_integer(seed, 1, 5)) + '.png';
+            element.src = '../graphics/map/Wall' + String(random_integer(seed, 1, 5)) + '.png';
             seed++
         } else if ((index < 25 || index % 25 == 0 || index % 25 == 24 || index / 25 >= 16 || (Math.floor(index / 25) == 1 && (index % 25 >= 11 && index % 25 <= 13))) && !((Math.floor(index / 25) == 16 && (index % 25 >= 11 && index % 25 <= 13)) || ((index % 25 == 0 || index % 25 == 24) && index / 25 >= 8 && index / 25 < 11))) {
-            element.src = 'graphics/map/WallTop.png';
+            element.src = '../graphics/map/WallTop.png';
         } else if (index / 25 <= 3 && !(index % 25 >= 11 && index % 25 <= 13)) {
-            element.src = 'graphics/map/Wall' + String(random_integer(seed, 1, 5)) + '.png';
+            element.src = '../graphics/map/Wall' + String(random_integer(seed, 1, 5)) + '.png';
             seed++
         } else {
-            element.src = 'graphics/map/FloorTile' + String(random_integer(seed, 1, 5)) + '.png';
+            element.src = '../graphics/map/FloorTile' + String(random_integer(seed, 1, 5)) + '.png';
             seed++
         }     
         container.appendChild(element);
@@ -61,7 +61,7 @@ function generate_room(seed) {
         carpet.className = 'element carpet';
         carpet.loading = 'lazy';
         carpet.decoding = 'async';
-        carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
+        carpet.src = '../graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
         seed++
 
         container.appendChild(carpet);

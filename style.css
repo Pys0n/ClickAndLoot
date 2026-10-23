@@ -1,83 +1,65 @@
-html, body {
-    height: 100%;
-    margin: 0;
+body {
+    align-items: center;
     background-color: black;
-    overflow: hidden;
-}
+    color: white;
 
-.container {
-    --tile-size: min(calc(100vw / 25), calc(100vh / 17));
-
-    width: calc(var(--tile-size) * 25);
-    height: calc(var(--tile-size) * 17);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(25, 1fr);
-    grid-auto-rows: var(--tile-size);
+    overflow: hidden;
 
-    gap: 0;
-    margin: auto;
-    padding: 0;
+    min-height: 100vh;
+    margin: 0;
 }
 
-.element {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-select: none;
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.animated {
+    position: relative;
+    width: 4vw;
+    height: 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.animated::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     height: 100%;
-    width: 100%;
+    background-color: white;
 
-    display: block;
-    image-rendering: pixelated;
-    object-fit: fill;
-
-    border: 0;
-    margin: 0;
-    padding: 0;
+    transition: height 750ms ease;
 }
 
-.hitbox {
-    position: absolute;
-    background-color: transparent;
-    image-rendering: pixelated;
-    object-fit: fill;
-
-    cursor: pointer;
-
-    border: 0;
-    margin: 0;
-    padding: 0;
+.animated:hover::before {
+    height: 125%;
 }
 
-.carpet {
-    position: absolute;
-    left: calc(var(--tile-size) * 1);
-    top: calc(var(--tile-size) * 3);
-
-    width: calc(var(--tile-size) * 23);
-    height: calc(var(--tile-size) * 13);
-
+.animated img {
+    position: relative;
     z-index: 1;
-    pointer-events: none;
+
+    width: 60%;
+    height: 60%;
+
+    transition: transform 750ms ease;
 }
 
-.fade {
-    position: fixed;
-    background-color: black;
-    
-    inset: 0;
-    opacity: 0;
-    z-index: 9998;
-
-    pointer-events: none;
-    transition: opacity 500ms ease;
-}
-
-.fade.active {
-    opacity: 1;
-    pointer-events: all;
+.animated:hover img {
+    transform: translateY(-1vw);
 }
