@@ -9,10 +9,16 @@ function load_dungeon(seed) {
     
     generate_room(room_seed);
 
+    const target = document.getElementById('container');
+    const htmlString = '<button style="position: absolute; x: 0; y: 0; width: fit-content; height: fit-content; background-color: #80808050; color: white; border: 0;" onclick="toggleFullscreen()">⛶</button>';
+    target.insertAdjacentHTML('beforeend', htmlString);   
+
     console.log('Your seed:', seed, '— Current room:', room);
 }
 
 function generate_room(seed) {
+    const container = document.getElementById('container');
+
     for (let index = 0; index < 25*17; index++) {
         const element = document.createElement('img');
         element.className = 'element';
@@ -31,107 +37,78 @@ function generate_room(seed) {
             element.src = 'graphics/map/FloorTile' + String(random_integer(seed, 1, 5)) + '.png';
             seed++
         }     
-        document.body.appendChild(element);
+        container.appendChild(element);
     }
 
     if (random_integer(seed, 1, 10) != 1) {
         seed++
         
         const carpet = document.createElement('img');
-        carpet.className = 'element';
+        carpet.className = 'element carpet';
         carpet.loading = 'lazy';
         carpet.decoding = 'async';
         carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
         seed++
 
-        const carpet_rect = document.getElementById('76').getBoundingClientRect();
-        const carpet_x = carpet_rect.left;
-        const carpet_y = carpet_rect.top;
-        const carpet_size = carpet_rect.width;
-
-        carpet.style.position = 'absolute';
-        carpet.style.left = String(carpet_x) + 'px';
-        carpet.style.top = String(carpet_y) + 'px';
-        carpet.style.width = String(carpet_size * 23) + 'px';
-        carpet.style.height = String(carpet_size * 13) + 'px';
-        document.body.appendChild(carpet);
+        container.appendChild(carpet);
     }
 
     // left door
-    const left_door_hitbox = document.createElement('button');
-    left_door_hitbox.className = 'hitbox';
-    left_door_hitbox.loading = 'lazy';
-    left_door_hitbox.decoding = 'async';
-    left_door_hitbox.onclick = () => change_room('left');
-
-    let rect = document.getElementById('150').getBoundingClientRect();
-    let x = rect.left;
-    let y = rect.top;
-    let size = rect.width;
-
-    left_door_hitbox.style.position = 'absolute'
-    left_door_hitbox.style.left = String(x) + 'px';
-    left_door_hitbox.style.top = String(y) + 'px';
-    left_door_hitbox.style.width = String(size) + 'px';
-    left_door_hitbox.style.height = String(size * 5) + 'px';
-    document.body.appendChild(left_door_hitbox)
+    create_hitbox({
+        column: 1,
+        row: 7,
+        column_span: 1,
+        row_span: 5,
+        onclick: () => change_room('left')
+    });
 
     // right door
-    const right_door_hitbox = document.createElement('button');
-    right_door_hitbox.className = 'hitbox';
-    right_door_hitbox.loading = 'lazy';
-    right_door_hitbox.decoding = 'async';
-    right_door_hitbox.onclick = () => change_room('right');
-
-    rect = document.getElementById('174').getBoundingClientRect();
-    x = rect.left;
-    y = rect.top;
-    size = rect.width;
-
-    right_door_hitbox.style.position = 'absolute'
-    right_door_hitbox.style.left = String(x) + 'px';
-    right_door_hitbox.style.top = String(y) + 'px';
-    right_door_hitbox.style.width = String(size) + 'px';
-    right_door_hitbox.style.height = String(size * 5) + 'px';
-    document.body.appendChild(right_door_hitbox)
+    create_hitbox({
+        column: 25,
+        row: 7,
+        column_span: 1,
+        row_span: 5,
+        onclick: () => change_room('right')
+    });
 
     // upper door
-    const upper_door_hitbox = document.createElement('button');
-    upper_door_hitbox.className = 'hitbox';
-    upper_door_hitbox.loading = 'lazy';
-    upper_door_hitbox.decoding = 'async';
-    upper_door_hitbox.onclick = () => change_room('up');
-
-    rect = document.getElementById('11').getBoundingClientRect();
-    x = rect.left;
-    y = rect.top;
-    size = rect.width;
-
-    upper_door_hitbox.style.position = 'absolute'
-    upper_door_hitbox.style.left = String(x) + 'px';
-    upper_door_hitbox.style.top = String(y) + 'px';
-    upper_door_hitbox.style.width = String(size * 3) + 'px';
-    upper_door_hitbox.style.height = String(size * 3) + 'px';
-    document.body.appendChild(upper_door_hitbox)
+    create_hitbox({
+        column: 12,
+        row: 1,
+        column_span: 3,
+        row_span: 3,
+        onclick: () => change_room('up')
+    });
 
     // bottom door
-    const bottom_door_hitbox = document.createElement('button');
-    bottom_door_hitbox.className = 'hitbox';
-    bottom_door_hitbox.loading = 'lazy';
-    bottom_door_hitbox.decoding = 'async';
-    bottom_door_hitbox.onclick = () => change_room('down');
+    create_hitbox({
+        column: 12,
+        row: 17,
+        column_span: 3,
+        row_span: 1,
+        onclick: () => change_room('down')
+    });
+}
 
-    rect = document.getElementById('411').getBoundingClientRect();
-    x = rect.left;
-    y = rect.top;
-    size = rect.width;
+function create_hitbox({
+  column,
+  row,
+  column_span = 1,
+  row_span = 1,
+  onclick
+}) {
+  const hitbox = document.createElement('button');
+  hitbox.className = 'hitbox';
+  hitbox.onclick = onclick;
 
-    bottom_door_hitbox.style.position = 'absolute'
-    bottom_door_hitbox.style.left = String(x) + 'px';
-    bottom_door_hitbox.style.top = String(y) + 'px';
-    bottom_door_hitbox.style.width = String(size * 3) + 'px';
-    bottom_door_hitbox.style.height = String(size) + 'px';
-    document.body.appendChild(bottom_door_hitbox)
+  hitbox.style.left = `calc(var(--tile-size) * ${column - 1})`;
+  hitbox.style.top = `calc(var(--tile-size) * ${row - 1})`;
+  hitbox.style.width = `calc(var(--tile-size) * ${column_span})`;
+  hitbox.style.height = `calc(var(--tile-size) * ${row_span})`;
+
+  document.getElementById('container').appendChild(hitbox);
+
+  return hitbox;
 }
 
 function change_room(to) {
@@ -168,23 +145,28 @@ function random_integer(seed, min, max) {
 }
 
 function toggleFullscreen() {
-  const elem = document.documentElement;
+    const element = document.documentElement;
 
-  if (!document.fullscreenElement) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
+    if (!document.fullscreenElement) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
     }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-  }
 }
+
+
+document.addEventListener('fullscreenchange', () => {
+  load_dungeon(dungeon_seed);
+});
