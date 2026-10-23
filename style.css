@@ -21,9 +21,19 @@ html, body {
 }
 
 .element {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+
     height: 100%;
     width: 100%;
+
     display: block;
+    image-rendering: pixelated;
+    object-fit: fill;
+
     border: 0;
     margin: 0;
     padding: 0;
@@ -31,6 +41,9 @@ html, body {
 
 .hitbox {
     background-color: transparent;
+    image-rendering: pixelated;
+    object-fit: fill;
+
     border: 0;
     margin: 0;
     padding: 0;
