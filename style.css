@@ -64,3 +64,20 @@ html, body {
     z-index: 1;
     pointer-events: none;
 }
+
+.fade {
+    position: fixed;
+    background-color: black;
+    
+    inset: 0;
+    opacity: 0;
+    z-index: 9998;
+
+    pointer-events: none;
+    transition: opacity 500ms ease;
+}
+
+.fade.active {
+    opacity: 1;
+    pointer-events: all;
+}

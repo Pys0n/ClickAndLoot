@@ -1,17 +1,32 @@
 let room = 0;
 let dungeon_seed = 0;
 
+const fade = document.getElementById('fade');
+
+function fade_out_in(callback) {
+  fade.classList.add('active');
+
+  setTimeout(() => {
+    callback();
+
+    // Kleine Verzögerung, damit der neue Raum zuerst gerendert wird
+    requestAnimationFrame(() => {
+      fade.classList.remove('active');
+    });
+  }, 500);
+}
+
 function load_dungeon(seed) {
     dungeon_seed = seed;
-    document.body.replaceChildren();
+    document.getElementById('container').replaceChildren();
 
     const room_seed = seed + room;
     
     generate_room(room_seed);
 
     const target = document.getElementById('container');
-    const htmlString = '<button style="position: absolute; x: 0; y: 0; width: fit-content; height: fit-content; background-color: #80808050; color: white; border: 0;" onclick="toggleFullscreen()">⛶</button>';
-    target.insertAdjacentHTML('beforeend', htmlString);   
+    const fullscreen_button = '<button style="position: absolute; x: 0; y: 0; width: fit-content; height: fit-content; background-color: #80808050; color: white; border: 0; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>';
+    target.insertAdjacentHTML('beforeend', fullscreen_button);
 
     console.log('Your seed:', seed, '— Current room:', room);
 }
@@ -91,24 +106,24 @@ function generate_room(seed) {
 }
 
 function create_hitbox({
-  column,
-  row,
-  column_span = 1,
-  row_span = 1,
-  onclick
+    column,
+    row,
+    column_span = 1,
+    row_span = 1,
+    onclick
 }) {
-  const hitbox = document.createElement('button');
-  hitbox.className = 'hitbox';
-  hitbox.onclick = onclick;
+    const hitbox = document.createElement('button');
+    hitbox.className = 'hitbox';
+    hitbox.onclick = onclick;
 
-  hitbox.style.left = `calc(var(--tile-size) * ${column - 1})`;
-  hitbox.style.top = `calc(var(--tile-size) * ${row - 1})`;
-  hitbox.style.width = `calc(var(--tile-size) * ${column_span})`;
-  hitbox.style.height = `calc(var(--tile-size) * ${row_span})`;
+    hitbox.style.left = `calc(var(--tile-size) * ${column - 1})`;
+    hitbox.style.top = `calc(var(--tile-size) * ${row - 1})`;
+    hitbox.style.width = `calc(var(--tile-size) * ${column_span})`;
+    hitbox.style.height = `calc(var(--tile-size) * ${row_span})`;
 
-  document.getElementById('container').appendChild(hitbox);
+    document.getElementById('container').appendChild(hitbox);
 
-  return hitbox;
+    return hitbox;
 }
 
 function change_room(to) {
@@ -122,7 +137,9 @@ function change_room(to) {
         room -= 1000
     }
 
-    load_dungeon(dungeon_seed)
+      fade_out_in(() => {
+        load_dungeon(dungeon_seed);
+    });
 }
 
 function mulberry32(seed) {
