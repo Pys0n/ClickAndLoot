@@ -16,6 +16,8 @@ function generate_room(seed) {
     for (let index = 0; index < 25*17; index++) {
         const element = document.createElement('img');
         element.className = 'element';
+        element.loading = 'lazy';
+        element.decoding = 'async';
         element.id = String(index);
         if ((index % 25 == 0 || index % 25 == 24) && index / 25 >= 6 && index / 25 < 8) {
             element.src = 'graphics/map/Wall' + String(random_integer(seed, 1, 5)) + '.png';
@@ -37,6 +39,8 @@ function generate_room(seed) {
         
         const carpet = document.createElement('img');
         carpet.className = 'element';
+        carpet.loading = 'lazy';
+        carpet.decoding = 'async';
         carpet.src = 'graphics/map/Carpet' + String(random_integer(seed, 1, 11)) + '.png';
         seed++
 
@@ -56,6 +60,8 @@ function generate_room(seed) {
     // left door
     const left_door_hitbox = document.createElement('button');
     left_door_hitbox.className = 'hitbox';
+    left_door_hitbox.loading = 'lazy';
+    left_door_hitbox.decoding = 'async';
     left_door_hitbox.onclick = () => change_room('left');
 
     let rect = document.getElementById('150').getBoundingClientRect();
@@ -73,6 +79,8 @@ function generate_room(seed) {
     // right door
     const right_door_hitbox = document.createElement('button');
     right_door_hitbox.className = 'hitbox';
+    right_door_hitbox.loading = 'lazy';
+    right_door_hitbox.decoding = 'async';
     right_door_hitbox.onclick = () => change_room('right');
 
     rect = document.getElementById('174').getBoundingClientRect();
@@ -90,6 +98,8 @@ function generate_room(seed) {
     // upper door
     const upper_door_hitbox = document.createElement('button');
     upper_door_hitbox.className = 'hitbox';
+    upper_door_hitbox.loading = 'lazy';
+    upper_door_hitbox.decoding = 'async';
     upper_door_hitbox.onclick = () => change_room('up');
 
     rect = document.getElementById('11').getBoundingClientRect();
@@ -107,6 +117,8 @@ function generate_room(seed) {
     // bottom door
     const bottom_door_hitbox = document.createElement('button');
     bottom_door_hitbox.className = 'hitbox';
+    bottom_door_hitbox.loading = 'lazy';
+    bottom_door_hitbox.decoding = 'async';
     bottom_door_hitbox.onclick = () => change_room('down');
 
     rect = document.getElementById('411').getBoundingClientRect();
