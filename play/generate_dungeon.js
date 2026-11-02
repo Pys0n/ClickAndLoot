@@ -23,9 +23,8 @@ function load_dungeon(seed) {
     
     generate_room(room_seed);
 
-    const target = document.getElementById('container');
-    const fullscreen_button = '<button style="position: absolute; x: 0; y: 0; width: fit-content; height: fit-content; background-color: #80808050; color: white; border: 0; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>';
-    target.insertAdjacentHTML('beforeend', fullscreen_button);
+    const fullscreen_button = '<button style="position: fixed; top: 0; right: 0; width: fit-content; height: fit-content; background-color: #78787850; color: white; border: 0; font-size: 1.5rem; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>';
+    document.body.insertAdjacentHTML('beforeend', fullscreen_button);
 
     console.log('Your seed:', seed, '— Current room:', room);
 }
