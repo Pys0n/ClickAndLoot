@@ -1,0 +1,56 @@
+body {
+    background: black;
+
+    display: grid;
+    justify-items: center;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.inventory {
+    position: relative;
+
+    width: min(
+        100dvw,
+        calc(100dvh * 568.047 / 364.106)
+    );
+
+    aspect-ratio: 568.047 / 364.106;
+
+    background: #292f4f;
+}
+
+.close {
+    width: 11.2%;
+    height: 6.2%;
+
+    position: absolute;
+    top: 1.4%;
+    left: 2.8%;
+}
+
+.rarity {
+    width: 10.4%;
+    height: 5%;
+
+    position: absolute;
+    top: 2%;
+}
+
+.category {
+    width: 11.2%;
+    height: 17.5%;
+
+    position: absolute;
+    left: 2.8%;
+}
+
+.arrow {
+    width: 5%;
+    height: 14.2%;
+
+    position: absolute;
+    top: 46.8%;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Click & Loot</title>
+	    <link rel="stylesheet" href="inventory.css">
+    </head>
+    <body>
+        <div class="inventory">
+            <a href="dungeon.html">
+                <button id="close" class="close">CLOSE</button>
+            </a>
+            
+            <button id="common" class="rarity" style="left: 16.7%;">COMMON</button>
+            <button id="uncommon" class="rarity" style="left: 28.6%;">UNCOMMON</button>
+            <button id="rare" class="rarity" style="left: 40.5%;">RARE</button>
+            <button id="epic" class="rarity" style="left: 52.4%;">EPIC</button>
+            <button id="legendary" class="rarity" style="left: 64.3%;">LEGENDARY</button>
+            <button id="mythic" class="rarity" style="left: 76.3%;">MYTHIC</button>
+            <button id="godly" class="rarity" style="left: 88.2%;">GODLY</button>
+
+            <button id="weapon" class="category" style="top: 10.4%;">WEAPONS</button>
+            <button id="armor" class="category" style="top: 33.6%;">ARMOR</button>
+            <button id="accessory" class="category" style="top: 56.8%;">ACCESSORIES</button>
+            <button id="rune" class="category" style="top: 80%;">RUNES</button>
+
+            <button id="previous" class="arrow" style="left: 17.9%;" onclick="">PREV</button>
+            <button id="next" class="arrow" style="left: 92.9%;">NEXT</button>
+        </div>
+
+        <script type="module" src="inventory.js"></script>
+        <button style="position: fixed; top: 0; right: 0; width: fit-content; height: fit-content; background-color: #78787850; color: white; border: 0; font-size: 1.5rem; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>
+    </body>
+</html>

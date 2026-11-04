@@ -6,7 +6,7 @@ html, body {
 }
 
 .container {
-    --tile-size: min(calc(100vw / 25), calc(100vh / 17));
+    --tile-size: min(calc(100dvw / 25), calc(100dvh / 17));
 
     width: calc(var(--tile-size) * 25);
     height: calc(var(--tile-size) * 17);
@@ -32,6 +32,8 @@ html, body {
     width: 100%;
 
     display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
     object-fit: fill;
 
@@ -43,6 +45,8 @@ html, body {
 .hitbox {
     position: absolute;
     background-color: transparent;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
     object-fit: fill;
 
@@ -80,4 +84,21 @@ html, body {
 .fade.active {
     opacity: 1;
     pointer-events: all;
+}
+
+.inventory {
+    background-color: gray;
+
+    width: 12dvh;
+    height: 12dvh;
+    
+    position: fixed;
+    bottom: 6dvh;
+    left: 2dvh;
+
+    cursor: pointer;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
