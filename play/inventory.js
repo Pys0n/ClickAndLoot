@@ -100,3 +100,7 @@ document.getElementById('mythic').addEventListener('click', () => {
 document.getElementById('godly').addEventListener('click', () => {
     set_rarity(6);
 });
+
+document.getElementById('fullscreen').addEventListener('click', () => {
+    toggleFullscreen();
+});

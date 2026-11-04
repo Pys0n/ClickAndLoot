@@ -93,7 +93,7 @@ html, body {
     height: 12dvh;
     
     position: fixed;
-    bottom: 6dvh;
+    top: 6dvh;
     left: 2dvh;
 
     cursor: pointer;
