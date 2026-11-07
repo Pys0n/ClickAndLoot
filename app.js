@@ -3,6 +3,7 @@ import { load_inventory } from "./play/inventory.js";
 
 const views = {
     menu: document.getElementById("menu-view"),
+    credits: document.getElementById("credits-view"),
     dungeon: document.getElementById("dungeon-view"),
     inventory: document.getElementById("inventory-view")
 };
@@ -24,6 +25,14 @@ document.getElementById("start-button").addEventListener("click", () => {
         load_dungeon(seed);
         dungeon_started = true;
     }
+});
+
+document.getElementById("credits-button").addEventListener("click", () => {
+    show_view("credits");
+});
+
+document.getElementById("credits-close").addEventListener("click", () => {
+    show_view("menu");
 });
 
 document.getElementById("inventory-button").addEventListener("click", () => {

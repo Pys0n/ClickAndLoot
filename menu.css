@@ -2,7 +2,7 @@
     display: none !important;
 }
 
-#menu-view {
+#menu-view, #credits-view {
     align-items: center;
     background-color: black;
     color: white;
@@ -21,6 +21,9 @@
 footer {
     position: absolute;
     bottom: 0;
+
+    display: flex;
+    gap: 10px;
 }
 
 .animated {
@@ -66,4 +69,9 @@ footer {
 
 .animated:hover img {
     transform: translateY(-1vw);
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
