@@ -89,12 +89,12 @@
 .inventory-button {
     background-color: gray;
 
-    width: 12dvh;
-    height: 12dvh;
+    width: 8dvw;
+    height: 8dvw;
     
     position: fixed;
-    top: 6dvh;
-    left: 2dvh;
+    bottom: 2.5dvh;
+    left: 2.5dvh;
 
     cursor: pointer;
 
