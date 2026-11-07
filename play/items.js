@@ -19,6 +19,7 @@ export const items = [
             new Weapon('Shepherds Staff', '../graphics/items/ShepherdsStaff.png'),
             new Weapon('Wooden Sword', '../graphics/items/WoodenSword.png'),
             new Weapon('Wooden Bow', '../graphics/items/WoodenBow.png'),
+            new Weapon('Leaf Blade', '../graphics/items/LeafBlade.png'),
 
             new Weapon('Epee', '../graphics/items/Epee.png'),
             new Weapon('Cleaver', '../graphics/items/Cleaver.png'),
@@ -28,12 +29,14 @@ export const items = [
             new Weapon('Shepherds Staff', '../graphics/items/ShepherdsStaff.png'),
             new Weapon('Wooden Sword', '../graphics/items/WoodenSword.png'),
             new Weapon('Wooden Bow', '../graphics/items/WoodenBow.png'),
+            new Weapon('Leaf Blade', '../graphics/items/LeafBlade.png'),
 
             new Weapon('Epee', '../graphics/items/Epee.png'),
             new Weapon('Cleaver', '../graphics/items/Cleaver.png'),
             new Weapon('Bonesword', '../graphics/items/BoneSword.png'),
             new Weapon('Broadsword', '../graphics/items/Broadsword.png'),
             new Weapon('Hook-Bladed Sword', '../graphics/items/HookBladedSword.png'),
+            new Weapon('Soldier Bow', '../graphics/items/SoldierBow.png'),
 
             new Weapon('Iron Dagger', '../graphics/items/IronDagger.png'),
             new Weapon('Iron Ring-Blade', '../graphics/items/IronRingBlade.png'),
@@ -49,12 +52,13 @@ export const items = [
             new Weapon('Bonesword', '../graphics/items/BoneSword.png'),
             new Weapon('Broadsword', '../graphics/items/Broadsword.png'),
             new Weapon('Hook-Bladed Sword', '../graphics/items/HookBladedSword.png'),
+            new Weapon('Soldier Bow', '../graphics/items/SoldierBow.png'),
 
             new Weapon('Serrated Sword', '../graphics/items/SerratedSword.png'),
+            new Weapon('Mechanical Sword', '../graphics/items/MechanicalSword.png'),
             new Weapon('Nature Sword', '../graphics/items/NatureSword.png'),
             new Weapon('Frozen Sword', '../graphics/items/FrozenSword.png'),
             new Weapon('Flaming Sword', '../graphics/items/FlamingSword.png'),
-            new Weapon('Lightning Sword', '../graphics/items/LightningSword.png'),
 
             new Weapon('Iron Dagger', '../graphics/items/IronDagger.png'),
             new Weapon('Iron Ring-Blade', '../graphics/items/IronRingBlade.png'),
@@ -93,10 +97,24 @@ export const items = [
         [
             // epic
             new Weapon('Serrated Sword', '../graphics/items/SerratedSword.png'),
+            new Weapon('Mechanical Sword', '../graphics/items/MechanicalSword.png'),
             new Weapon('Nature Sword', '../graphics/items/NatureSword.png'),
             new Weapon('Frozen Sword', '../graphics/items/FrozenSword.png'),
             new Weapon('Flaming Sword', '../graphics/items/FlamingSword.png'),
-            new Weapon('Lightning Sword', '../graphics/items/LightningSword.png'),
+
+            new Weapon('Air Spear', '../graphics/items/AirSpear.png'),
+            new Weapon('Air Sword', '../graphics/items/AirSword.png'),
+            new Weapon('Ice Spear', '../graphics/items/IceSpear.png'),
+            new Weapon('Ice Sword', '../graphics/items/IceSword.png'),
+            new Weapon('Ice Bow', '../graphics/items/IceBow.png'),
+            new Weapon('Fire Spear', '../graphics/items/FireSpear.png'),
+            new Weapon('Fire Sword', '../graphics/items/FireSword.png'),
+            new Weapon('Water Spear', '../graphics/items/WaterSpear.png'),
+            new Weapon('Water Saber', '../graphics/items/WaterSaber.png'),
+            new Weapon('Nature Spear', '../graphics/items/NatureSpear.png'),
+            new Weapon('Electro Spear', '../graphics/items/ElectroSpear.png'),
+            new Weapon('Electro Sword', '../graphics/items/ElectroSword.png'),
+
 
             new Weapon('Silver Dagger', '../graphics/items/SilverDagger.png'),
             new Weapon('Silver Ring-Blade', '../graphics/items/SilverRingBlade.png'),
@@ -159,9 +177,24 @@ export const items = [
             new Weapon('Silver Gemstone Greatsword', '../graphics/items/SilverGemstoneGreatsword.png'),
             new Weapon('Colossal Onyx Sword', '../graphics/items/ColossalOnyxSword.png'),
             new Weapon('Shadow King\'s Sword', '../graphics/items/ShadowKingsSword.png'),
+            new Weapon('Spear Of Heaven', '../graphics/items/SpearOfHeaven.png'),
+            new Weapon('Golden Katana', '../graphics/items/GoldenKatana.png'),
         ],
         [
             // legendary
+            new Weapon('Air Spear', '../graphics/items/AirSpear.png'),
+            new Weapon('Air Sword', '../graphics/items/AirSword.png'),
+            new Weapon('Ice Spear', '../graphics/items/IceSpear.png'),
+            new Weapon('Ice Sword', '../graphics/items/IceSword.png'),
+            new Weapon('Ice Bow', '../graphics/items/IceBow.png'),
+            new Weapon('Fire Spear', '../graphics/items/FireSpear.png'),
+            new Weapon('Fire Sword', '../graphics/items/FireSword.png'),
+            new Weapon('Water Spear', '../graphics/items/WaterSpear.png'),
+            new Weapon('Water Saber', '../graphics/items/WaterSaber.png'),
+            new Weapon('Nature Spear', '../graphics/items/NatureSpear.png'),
+            new Weapon('Electro Spear', '../graphics/items/ElectroSpear.png'),
+            new Weapon('Electro Sword', '../graphics/items/ElectroSword.png'),
+
             new Weapon('Molten Sword', '../graphics/items/MoltenSword.png'),
             new Weapon('Ruby Skull Sword', '../graphics/items/RubySkullSword.png'),
 
@@ -196,7 +229,7 @@ export const items = [
             new Weapon('Silver Gemstone Greatsword', '../graphics/items/SilverGemstoneGreatsword.png'),
             new Weapon('Colossal Onyx Sword', '../graphics/items/ColossalOnyxSword.png'),
             new Weapon('Shadow King\'s Sword', '../graphics/items/ShadowKingsSword.png'),
-
+            new Weapon('Spear Of Heaven', '../graphics/items/SpearOfHeaven.png'),
             new Weapon('Golden Katana', '../graphics/items/GoldenKatana.png'),
 
             new Weapon('Cursed Katana', '../graphics/items/CursedKatana.png'),
@@ -234,6 +267,8 @@ export const items = [
             new Weapon('Flesh Scythe', '../graphics/items/FleshScythe.png'),
             new Weapon('Lava Crystal Sword', '../graphics/items/LavaCrystalSword.png'),
             new Weapon('Water Sword', '../graphics/items/WaterSword.png'),
+
+            new Weapon('Shadow Nebula Sword', '../graphics/items/ShadowNebulaSword.png'),
         ],
         [
             // godly
