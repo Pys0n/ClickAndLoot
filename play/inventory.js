@@ -8,6 +8,9 @@ let current_rarity = 0;
 function change_page(x) {
     current_page += x;
 
+    if (items[current_category][current_rarity][current_page*20] == null) {
+        current_page--;
+    }
     if (current_page < 0) {
         current_page = 0;
     }
@@ -30,7 +33,34 @@ function set_rarity(rarity) {
 }
 
 function load_inventory() {
-    console.log(current_page, current_category, current_rarity)
+    const current_items = items[current_category][current_rarity].slice(current_page*20, current_page*20+20)
+
+    console.log(current_page, current_category, current_rarity, current_items)
+
+
+    console.log(current_items[0])
+    console.log("HTML-Basis:", document.baseURI);
+
+    console.log(
+        "Bild-Adresse:",
+        new URL(current_items[0].img_path, document.baseURI).href
+    );
+
+    const slots = document.getElementById('slots')
+    slots.replaceChildren();
+
+    for (const item of current_items) {
+        const slot = document.createElement("button");
+
+        slot.type = "button";
+        slot.className = "slot";
+        slot.style.backgroundImage = `url("${item.img_path}")`;
+
+        slots.appendChild(slot);
+        
+        //const slot = "<button style=\"border: none; background-image: url('${item.img_path}');\"></button>"
+        //slots.insertAdjacentHTML('beforeend', slot)
+    }
 }
 
 function toggleFullscreen() {
@@ -104,3 +134,5 @@ document.getElementById('godly').addEventListener('click', () => {
 document.getElementById('fullscreen').addEventListener('click', () => {
     toggleFullscreen();
 });
+
+load_inventory();

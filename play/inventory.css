@@ -54,3 +54,35 @@ body {
     position: absolute;
     top: 46.8%;
 }
+
+.slots {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 10.4%;
+    left: 22.9%;
+
+    width: 70%;
+    height: 87.1%;
+}
+
+.slot {
+    background-color: #00000066;
+
+    margin: 0;
+    border: none;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    image-rendering: pixelated;
+    cursor: pointer;
+}
