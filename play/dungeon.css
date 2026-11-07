@@ -1,4 +1,4 @@
-html, body {
+#dungeon-view {
     height: 100%;
     margin: 0;
     background-color: black;
@@ -86,7 +86,7 @@ html, body {
     pointer-events: all;
 }
 
-.inventory {
+.inventory-button {
     background-color: gray;
 
     width: 12dvh;

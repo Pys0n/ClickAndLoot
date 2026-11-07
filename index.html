@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>Click & Loot</title>
-	    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Click & Loot</title>
+
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./menu.css">
+    <link rel="stylesheet" href="./play/dungeon.css">
+    <link rel="stylesheet" href="./play/inventory.css">
+</head>
+<body>
+    <section id="menu-view">
         <h1>Click & Loot</h1>
-        <script src="index.js"></script>
-        <button style="position: fixed; top: 0; right: 0; width: fit-content; height: fit-content; background-color: #78787850; color: white; border: 0; font-size: 1.5rem; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>
-        <a href="play/dungeon.html" style="text-decoration: none;">
-            <button style="width: 50vw; height: fit-content; font-size: large;">Start Game</button>
-        </a>
-    </body>
-    <footer>
-        <a
-            class="animated"
-            href="https://github.com/Pys0n/ClickAndLoot"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-        >
-            <img src="graphics/icons/github.svg" alt="">
-        </a>
-    </footer>
+        <button id="start-button" style="width: 50vw; height: fit-content; font-size: large;">Start Game</button>
+        <footer>
+            <a
+                class="animated"
+                href="https://github.com/Pys0n/ClickAndLoot"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+            >
+                <img src="graphics/icons/github.svg" alt="">
+            </a>
+        </footer>
+    </section>
+
+    <section id="dungeon-view" hidden>
+        <div class="container" id="container"></div>
+        <div id="fade" class="fade"></div>
+        <button id="inventory-button" class="inventory-button">Inventory</button>
+    </section>
+
+    <section id="inventory-view" hidden>
+        <div class="inventory-layout">
+            <button id="inventory-close" class="close">CLOSE</button>
+            
+            <button id="common" class="rarity" style="left: 16.7%;">COMMON</button>
+            <button id="uncommon" class="rarity" style="left: 28.6%;">UNCOMMON</button>
+            <button id="rare" class="rarity" style="left: 40.5%;">RARE</button>
+            <button id="epic" class="rarity" style="left: 52.4%;">EPIC</button>
+            <button id="legendary" class="rarity" style="left: 64.3%;">LEGENDARY</button>
+            <button id="mythic" class="rarity" style="left: 76.3%;">MYTHIC</button>
+            <button id="godly" class="rarity" style="left: 88.2%;">GODLY</button>
+
+            <button id="weapon" class="category" style="top: 10.4%;">WEAPONS</button>
+            <button id="armor" class="category" style="top: 33.6%;">ARMOR</button>
+            <button id="accessory" class="category" style="top: 56.8%;">ACCESSORIES</button>
+            <button id="rune" class="category" style="top: 80%;">RUNES</button>
+
+            <button id="previous" class="arrow" style="left: 17.9%;">PREV</button>
+            <button id="next" class="arrow" style="left: 92.9%;">NEXT</button>
+            <div id="slots" class="slots"></div>
+        </div>
+    </section>
+
+    <button id="fullscreen-button" style="position: fixed; top: 0; right: 0; width: fit-content; height: fit-content; background-color: #78787850; color: white; border: 0; font-size: 1.5rem; cursor: pointer; z-index: 9999;">⛶</button>
+
+    <script type="module" src="./app.js"></script>
+</body>
 </html>

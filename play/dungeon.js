@@ -15,16 +15,13 @@ function fade_out_in(callback) {
   }, 500);
 }
 
-function load_dungeon(seed) {
+export function load_dungeon(seed) {
     dungeon_seed = seed;
     document.getElementById('container').replaceChildren();
 
     const room_seed = seed + room;
     
     generate_room(room_seed);
-
-    const fullscreen_button = '<button style="position: fixed; top: 0; right: 0; width: fit-content; height: fit-content; background-color: #78787850; color: white; border: 0; font-size: 1.5rem; cursor: pointer; z-index: 9999;" onclick="toggleFullscreen()">⛶</button>';
-    document.body.insertAdjacentHTML('beforeend', fullscreen_button);
 
     console.log('Your seed:', seed, '— Current room:', room);
 }
@@ -157,28 +154,6 @@ function random_integer(seed, min, max) {
     const rng = mulberry32(seed);
 
     return Math.floor(rng() * (max - min + 1)) + min;
-}
-
-function toggleFullscreen() {
-    const element = document.documentElement;
-
-    if (!document.fullscreenElement) {
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.webkitRequestFullscreen) {
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) {
-            element.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
 }
 
 

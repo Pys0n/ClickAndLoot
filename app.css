@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+    background: black;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+#menu-view,
+#dungeon-view,
+#inventory-view {
+    width: 100%;
+    height: 100dvh;
+}
+
+#inventory-view {
+    display: grid;
+    place-items: center;
+}

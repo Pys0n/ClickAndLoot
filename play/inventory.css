@@ -1,4 +1,4 @@
-body {
+#inventory-view {
     background: black;
 
     display: grid;
@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 
-.inventory {
+.inventory-layout {
     position: relative;
 
     width: min(

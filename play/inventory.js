@@ -32,19 +32,8 @@ function set_rarity(rarity) {
     load_inventory();
 }
 
-function load_inventory() {
+export function load_inventory() {
     const current_items = items[current_category][current_rarity].slice(current_page*20, current_page*20+20)
-
-    console.log(current_page, current_category, current_rarity, current_items)
-
-
-    console.log(current_items[0])
-    console.log("HTML-Basis:", document.baseURI);
-
-    console.log(
-        "Bild-Adresse:",
-        new URL(current_items[0].img_path, document.baseURI).href
-    );
 
     const slots = document.getElementById('slots')
     slots.replaceChildren();
@@ -57,33 +46,9 @@ function load_inventory() {
         slot.style.backgroundImage = `url("${item.img_path}")`;
 
         slots.appendChild(slot);
-        
-        //const slot = "<button style=\"border: none; background-image: url('${item.img_path}');\"></button>"
-        //slots.insertAdjacentHTML('beforeend', slot)
     }
 }
 
-function toggleFullscreen() {
-    const element = document.documentElement;
-
-    if (!document.fullscreenElement) {
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.webkitRequestFullscreen) {
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) {
-            element.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
-}
 
 document.addEventListener('fullscreenchange', () => {
     load_inventory()
@@ -130,9 +95,3 @@ document.getElementById('mythic').addEventListener('click', () => {
 document.getElementById('godly').addEventListener('click', () => {
     set_rarity(6);
 });
-
-document.getElementById('fullscreen').addEventListener('click', () => {
-    toggleFullscreen();
-});
-
-load_inventory();
