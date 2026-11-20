@@ -21,6 +21,7 @@ export const items = [
             new Weapon('Wooden Bow', './graphics/items/WoodenBow.png'),
             new Weapon('Leaf Blade', './graphics/items/LeafBlade.png'),
 
+            new Weapon('Fragile Dagger', './graphics/items/FragileDagger.png'),
             new Weapon('Epee', './graphics/items/Epee.png'),
             new Weapon('Cleaver', './graphics/items/Cleaver.png'),
         ],
@@ -31,6 +32,7 @@ export const items = [
             new Weapon('Wooden Bow', './graphics/items/WoodenBow.png'),
             new Weapon('Leaf Blade', './graphics/items/LeafBlade.png'),
 
+            new Weapon('Fragile Dagger', './graphics/items/FragileDagger.png'),
             new Weapon('Epee', './graphics/items/Epee.png'),
             new Weapon('Cleaver', './graphics/items/Cleaver.png'),
             new Weapon('Bonesword', './graphics/items/BoneSword.png'),
