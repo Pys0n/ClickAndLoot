@@ -9,4 +9,4 @@
     - walls, floor, 4 clickable corridors, carpet, *void*
 - inventory
     - 7 rarities, 4 categories, multiple pages, (slots missing)
-    - a total of 211 weapons (weapons appear in multiple rarities)
+    - a total of 213 weapons (weapons appear in multiple rarities)
